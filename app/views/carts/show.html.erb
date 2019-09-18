@@ -49,6 +49,6 @@
       </div>
     </div>
   <% else %>
-  <div class="alert alert-info">Your cart is empty. <a href="<%= root_path %>">Head back to the homepage!</a></div>
+  <div class="alert alert-info">Your cart is empty. <%= link_to "Head back to the homepage!", root_path %></div>
   <% end %>
 </section>
