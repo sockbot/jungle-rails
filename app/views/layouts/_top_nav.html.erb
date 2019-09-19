@@ -29,17 +29,16 @@
           <%= link_to 'About Us', :about %>
         </li>
       </ul>
-      
       <ul class="nav navbar-nav navbar-right">
         <li>
-          <% if @current_user %>
-            Signed in as <%= @current_user.name %> 
+          <% if current_user %>
+            <a>Signed in as <%= current_user.email %></a>
           <% else %>
             <%= link_to 'Login', '/login' %> 
           <% end %>
         </li>
         <li>
-          <% if @current_user %>
+          <% if current_user %>
             <%= link_to "Logout", '/logout' %>
           <% else %>
             <%= link_to 'Signup', '/signup' %>
