@@ -53,27 +53,27 @@ RSpec.describe User, type: :model do
       expect(subject.errors.any?).to be true
     end
 
-    # it 'is not valid when email is not unique' do
-    #   expect(subject).not_to be_valid
-    #   expect(subject.errors.any?).to be true
-    # end
-
-    # it 'has an authenticate method that returns a user' do
-    #   puts subject.authenticate_with_credentials('test@test.com', '123456').inspect
-    # end
+    it 'treats emails without case sensitivity' do
+      subject.save
+      user = User.new({email: "NO@NO.COM", first_name: "NOT", last_name: "SURE", password: "12345678", password_confirmation: "12345678"})
+      expect(user).not_to be_valid
+      expect(user.errors.messages[:email].first).to eq "has already been taken"
+    end
 
   end
 
   describe '.authenticate_with_credentials' do
 
     it 'is valid with valid creds' do
-      subject.authenticate_with_credentials('no@no.com', '12345678')
-      expect(subject).to be_a User
+      subject.save
+      logged_in_user = User.authenticate_with_credentials('no@no.com', '12345678')
+      expect(logged_in_user.id).to eq subject.id
     end
 
-    it 'is invalid with invalid creds' do
-      subject.authenticate_with_credentials('hello@hello.com', '123')
-      expect(subject).to be nil
+    it 'is nil with invalid creds' do
+      subject.save
+      logged_in_user = User.authenticate_with_credentials('no@no.com', '123456789')
+      expect(logged_in_user).to be nil
     end
 
   end
