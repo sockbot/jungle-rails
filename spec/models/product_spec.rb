@@ -12,14 +12,26 @@ RSpec.describe Product, type: :model do
       subject.category = Category.new
       expect(subject).to be_valid
     end
-    # it 'is not valid without a name'
-    # it 'is not valid without a price'
-    # it 'is not valid without a quantity'
-    # it 'is not valid without a category'
-    # validates :name, presence: true
-    # validates :price, presence: true
-    # validates :quantity, presence: true
-    # validates :category, presence: true
+
+    it 'is not valid without a name' do
+      subject.name = nil
+      expect(subject).to_not be_valid
+    end
+
+    it 'is not valid without a price' do
+      subject.price = nil
+      expect(subject).to_not be_valid
+    end
+
+    it 'is not valid without a quantity' do
+      subject.quantity = nil
+      expect(subject).to_not be_valid
+    end
+
+    it 'is not valid without a category' do
+      subject.category = nil
+      expect(subject).to_not be_valid
+    end
   end
 
 end
