@@ -23,7 +23,6 @@ RSpec.describe Product, type: :model do
       subject.category = @category
       expect(subject).to_not be_valid
       expect(subject.errors.any?).to be true
-      puts subject.errors.full_messages
     end
 
     it 'is not valid without a price' do
