@@ -58,6 +58,24 @@ RSpec.describe User, type: :model do
     #   expect(subject.errors.any?).to be true
     # end
 
+    # it 'has an authenticate method that returns a user' do
+    #   puts subject.authenticate_with_credentials('test@test.com', '123456').inspect
+    # end
+
+  end
+
+  describe '.authenticate_with_credentials' do
+
+    it 'is valid with valid creds' do
+      subject.authenticate_with_credentials('no@no.com', '12345678')
+      expect(subject).to be_a User
+    end
+
+    it 'is invalid with invalid creds' do
+      subject.authenticate_with_credentials('hello@hello.com', '123')
+      expect(subject).to be nil
+    end
+
   end
 
 end
