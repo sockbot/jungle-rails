@@ -1,7 +1,32 @@
 # Jungle
 
-A mini e-commerce application built with Rails 4.2 for purposes of teaching Rails by example.
+A mini e-commerce application to show ability to contribute to an existing project.
 
+## Technologies and Frameworks
+
+### Test
+
+- rspec
+- phantomjs
+- capybara
+
+### Front End
+
+- erb
+- HTML/CSS
+- SASS
+
+### Back End
+
+- Rails
+- Ruby
+- bcrypt
+
+## Screenshots
+
+![Home Page](https://github.com/sockbot/jungle-rails/blob/master/docs/home_page.png)
+![Product Show](https://github.com/sockbot/jungle-rails/blob/master/docs/product_show.png)
+![Admin Product Index](https://github.com/sockbot/jungle-rails/blob/master/docs/admin_product_index.png)
 
 ## Setup
 
@@ -25,3 +50,11 @@ More information in their docs: <https://stripe.com/docs/testing#cards>
 * Rails 4.2 [Rails Guide](http://guides.rubyonrails.org/v4.2/)
 * PostgreSQL 9.x
 * Stripe
+
+## How it works
+
+A user can create, edit and delete appointments between students and interviewers in 5 slots per day, 5 days a week. The appointment data is persistent stored on a server in a PostgreSQL database.
+
+The user input is validated on the client side to ensure empty appointments are not submitted. State is handled using React useEffect and useReducer.
+
+The user input is posted to the server using an asynchronous Ajax call and posted to all connected clients using WebSockets.
