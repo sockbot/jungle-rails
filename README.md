@@ -54,6 +54,6 @@ More information in their docs: <https://stripe.com/docs/testing#cards>
 
 ## How it works
 
-A user can browse products, add to cart, and checkout. The inventory and user data is persistent stored on a server in a PostgreSQL database.
+A user can browse products, add to cart, and checkout. The inventory and user data is persistent stored on a server in a PostgreSQL database. User passwords are encrypted.
 
-An administrator has further access to pages to add and remove products from the store.
+An administrator has further access to pages to add and remove products from the store. The administrator pages are hidden behind a class requiring authorization from hard-coded admin credentials.
