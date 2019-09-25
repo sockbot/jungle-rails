@@ -21,6 +21,7 @@ A mini e-commerce application to show ability to contribute to an existing proje
 - Rails
 - Ruby
 - bcrypt
+- SQL
 
 ## Screenshots
 
@@ -53,8 +54,6 @@ More information in their docs: <https://stripe.com/docs/testing#cards>
 
 ## How it works
 
-A user can create, edit and delete appointments between students and interviewers in 5 slots per day, 5 days a week. The appointment data is persistent stored on a server in a PostgreSQL database.
+A user can browse products, add to cart, and checkout. The inventory and user data is persistent stored on a server in a PostgreSQL database.
 
-The user input is validated on the client side to ensure empty appointments are not submitted. State is handled using React useEffect and useReducer.
-
-The user input is posted to the server using an asynchronous Ajax call and posted to all connected clients using WebSockets.
+An administrator has further access to pages to add and remove products from the store.
